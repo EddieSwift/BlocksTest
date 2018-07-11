@@ -17,7 +17,79 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    /*
+    [self testMethod];
+     
+    [self testMethidWithParams: @"Test string" value:11];
+     
+     NSString* result = [self testMethodWithReturnParams:@"Test string with return params" value:222];
+     NSLog(@"%@", result);
+     
+  
+    
+    void (^testBlock) (void);
+    
+    testBlock = ^{
+        NSLog(@"test block!");
+    };
+    
+    testBlock();
+    testBlock();
+    testBlock();
+    
+    void (^testBlockWithParams) (NSString*, NSInteger) = ^(NSString* string, NSInteger intValue) {
+        NSLog(@"testBlockWithParams %@ %ld", string, (long)intValue);
+    };
+    
+    testBlockWithParams(@"TEST STRING", 111);
+    
+    NSString* (^testBlockWithReturnParams) (NSString*, NSInteger) = ^(NSString* string, NSInteger intValue) {
+        return [NSString stringWithFormat:@"testMethodWithReturneParams %@ %ld", string, intValue];
+    };
+    
+    NSString* result = testBlockWithReturnParams(@"Test string with return params",222);
+    
+    NSLog(@"%@", result);
+     
+    */
+    
+    __block NSString* testString = @"How is it possible?";
+    
+    __block NSInteger i = 0;
+    
+    void (^testBlock2) (void);
+    
+    testBlock2 = ^{
+        NSLog(@"test block!");
+        
+        i = i + 1;
+        //NSLog(@"%ld", (long)++i);
+        testString = [NSString stringWithFormat:@"How is it possible? %ld", (long)i];
+        NSLog(@"%@", testString);
+    };
+    
+    testBlock2();
+    testBlock2();
+    testBlock2();
+    testBlock2();
+    testBlock2();
+    
+    
+    
     return YES;
+}
+
+- (void) testMethod {
+    NSLog(@"test method!");
+}
+
+- (void) testMethidWithParams: (NSString*) string value: (NSInteger) intValue {
+    NSLog(@"testMethidWithParams %@ %ld", string, (long)intValue);
+}
+
+- (NSString*) testMethodWithReturnParams: (NSString*) string value: (NSInteger) intValue {
+    return [NSString stringWithFormat:@"testMethodWithReturneParams %@ %ld", string, intValue];
 }
 
 
