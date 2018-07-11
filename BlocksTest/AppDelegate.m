@@ -7,8 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "EGBObject.h"
+
+typedef void (^OurTestBlock) (void);
+typedef NSString* (^OurTestBlock2) (NSInteger);
+
+//typedef NSInteger (^myBlock2) (void);
 
 @interface AppDelegate ()
+
+@property (copy, nonatomic) OurTestBlock testBlock;
+@property (strong, nonatomic) NSString* name;
 
 @end
 
@@ -52,7 +61,7 @@
     
     NSLog(@"%@", result);
      
-    */
+   
     
     __block NSString* testString = @"How is it possible?";
     
@@ -74,10 +83,85 @@
     testBlock2();
     testBlock2();
     testBlock2();
+    */
+  
+    /*
+    void (^ccc)(void);
+    
+    ccc = ^{
+        NSLog(@"BLOCK!!!");
+    };
+    
+    [self testBlocksMethod:ccc];
+    
+    
+    OurTestBlock2 tb = ^(NSInteger intValue) {
+        return [NSString stringWithFormat:@"%ld", (long)intValue];
+    };
+    
+    NSLog(@"%@", tb(5));
+    */
+
+    
+    /*
+     EGBObject* obj = [[EGBObject alloc] init];
+     obj.name = @"Object";
+     
+     __weak EGBObject* weakObj = obj;
+     
+     self.testBlock = ^{
+     NSLog(@"%@", obj.name);
+     };
+     
+     self.testBlock();
+     */
+    
+    /*
+    self.name = @"Hello";
+    
+    EGBObject* obj1 = [[EGBObject alloc] init];
+    obj1.name = @"Object";
+    
+    [obj1 testMethod:^{
+        NSLog(@"%@", self.name);
+    }];
+    */
+    
+    //Level Learner
+    
+    void (^myBlock) (void);
+    
+    myBlock = ^{
+        NSLog(@"My block is active!");
+    };
+    
+    myBlock();
+    
+    
+NSInteger (^myBlock2) (void);
+    
+
+    
+    myBlock2 = ^{
+        NSInteger intValue = 5;
+        return intValue;
+    };
+    
+    NSLog(@"%ld", (long)myBlock2());
     
     
     
     return YES;
+}
+
+- (void) testBlocksMethod: (void (^)(void)) testBlock {
+    
+    NSLog(@"testBlocksMethod");
+    
+    testBlock();
+    testBlock();
+    testBlock();
+    testBlock();
 }
 
 - (void) testMethod {
