@@ -9,10 +9,12 @@
 #import "AppDelegate.h"
 #import "EGBObject.h"
 
+typedef void (^MyBlock) (void);
+typedef NSInteger (^MyBlock2) (void);
+typedef void (^MyBlock3) (NSString*);
+
 typedef void (^OurTestBlock) (void);
 typedef NSString* (^OurTestBlock2) (NSInteger);
-
-//typedef NSInteger (^myBlock2) (void);
 
 @interface AppDelegate ()
 
@@ -129,29 +131,47 @@ typedef NSString* (^OurTestBlock2) (NSInteger);
     
     //Level Learner
     
-    void (^myBlock) (void);
+    // 1. В апп делегате создайте блок с без возвращаемой переменной и без параметров и вызовите его.
     
-    myBlock = ^{
+    //void (^myBlock) (void);
+    
+    MyBlock myBlock = ^{
         NSLog(@"My block is active!");
     };
     
     myBlock();
     
+    //NSInteger (^myBlock2) (void);
     
-NSInteger (^myBlock2) (void);
-    
-
-    
-    myBlock2 = ^{
+    MyBlock2 myBlock2 = ^{
         NSInteger intValue = 5;
         return intValue;
     };
     
     NSLog(@"%ld", (long)myBlock2());
     
+    // 2. Создайте блоки с параметрами и передайте туда строку, которую выведите на экран в последствии.
+    // 3. Если вы не определили тип данных для ваших блоков, то сделайте это сейчас и используйте их
     
+    NSString* string = @"Output of block string";
+    
+    MyBlock3 myBlock3 = ^(NSString* string) {
+        NSLog(@"%@", string);
+    };
+    
+    myBlock3(string);
+    
+    // 4. Создайте метод который принимает блок и вызывает его и вызовите этот метод
+    
+    [self myMethodWithBlock:myBlock];
     
     return YES;
+}
+
+- (void) myMethodWithBlock:(void (^)(void)) myBlock {
+    
+    NSLog(@"myMethodWithBlock");
+    myBlock();
 }
 
 - (void) testBlocksMethod: (void (^)(void)) testBlock {
