@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C45B37720F622FD00E0A334 /* EGBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45B37620F622FD00E0A334 /* EGBObject.m */; };
+		2C45B37A20F8F01500E0A334 /* EGBStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45B37920F8F01500E0A334 /* EGBStudent.m */; };
 		2C9020E720EF98A50078701A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9020E620EF98A50078701A /* AppDelegate.m */; };
 		2C9020EA20EF98A50078701A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9020E920EF98A50078701A /* ViewController.m */; };
 		2C9020ED20EF98A50078701A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9020EB20EF98A50078701A /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* Begin PBXFileReference section */
 		2C45B37520F622FD00E0A334 /* EGBObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EGBObject.h; sourceTree = "<group>"; };
 		2C45B37620F622FD00E0A334 /* EGBObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EGBObject.m; sourceTree = "<group>"; };
+		2C45B37820F8F01500E0A334 /* EGBStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EGBStudent.h; sourceTree = "<group>"; };
+		2C45B37920F8F01500E0A334 /* EGBStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EGBStudent.m; sourceTree = "<group>"; };
 		2C9020E220EF98A50078701A /* BlocksTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocksTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9020E520EF98A50078701A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C9020E620EF98A50078701A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,6 +64,8 @@
 		2C9020E420EF98A50078701A /* BlocksTest */ = {
 			isa = PBXGroup;
 			children = (
+				2C45B37820F8F01500E0A334 /* EGBStudent.h */,
+				2C45B37920F8F01500E0A334 /* EGBStudent.m */,
 				2C45B37520F622FD00E0A334 /* EGBObject.h */,
 				2C45B37620F622FD00E0A334 /* EGBObject.m */,
 				2C9020E520EF98A50078701A /* AppDelegate.h */,
@@ -146,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C45B37A20F8F01500E0A334 /* EGBStudent.m in Sources */,
 				2C9020EA20EF98A50078701A /* ViewController.m in Sources */,
 				2C9020F520EF98A80078701A /* main.m in Sources */,
 				2C9020E720EF98A50078701A /* AppDelegate.m in Sources */,

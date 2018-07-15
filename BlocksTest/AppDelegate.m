@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "EGBObject.h"
+#import "EGBStudent.h"
 
 typedef void (^MyBlock) (void);
 typedef NSInteger (^MyBlock2) (void);
@@ -128,7 +129,8 @@ typedef NSString* (^OurTestBlock2) (NSInteger);
         NSLog(@"%@", self.name);
     }];
     */
-    
+   
+    /*
     //Level Learner
     
     // 1. В апп делегате создайте блок с без возвращаемой переменной и без параметров и вызовите его.
@@ -164,6 +166,107 @@ typedef NSString* (^OurTestBlock2) (NSInteger);
     // 4. Создайте метод который принимает блок и вызывает его и вызовите этот метод
     
     [self myMethodWithBlock:myBlock];
+     */
+    
+    EGBStudent* student0 = [[EGBStudent alloc] init];
+    student0.name = @"John";
+    student0.lastName = @"Petrucci";
+    
+    EGBStudent* student1 = [[EGBStudent alloc] init];
+    student1.name = @"Tommy";
+    student1.lastName = @"Iommi";
+    
+    EGBStudent* student2 = [[EGBStudent alloc] init];
+    student2.name = @"Steve";
+    student2.lastName = @"Vai";
+    
+    EGBStudent* student3 = [[EGBStudent alloc] init];
+    student3.name = @"Zakk";
+    student3.lastName = @"Whylde";
+    
+    EGBStudent* student4 = [[EGBStudent alloc] init];
+    student4.name = @"Paul";
+    student4.lastName = @"Gilbert";
+    
+    EGBStudent* student5 = [[EGBStudent alloc] init];
+    student5.name = @"Richi";
+    student5.lastName = @"Blackmoor";
+    
+    EGBStudent* student6 = [[EGBStudent alloc] init];
+    student6.name = @"Ozzy";
+    student6.lastName = @"Osborn";
+    
+    EGBStudent* student7 = [[EGBStudent alloc] init];
+    student7.name = @"Randy";
+    student7.lastName = @"Roads";
+    
+    EGBStudent* student8 = [[EGBStudent alloc] init];
+    student8.name = @"Nick";
+    student8.lastName = @"Petrucci";
+    
+    EGBStudent* student9 = [[EGBStudent alloc] init];
+    student9.name = @"David";
+    student9.lastName = @"Gilbert";
+    
+    NSArray* studentsArray = [[NSArray alloc] initWithObjects:student0, student1, student2, student3, student4, student5, student6, student7, student8, student9, nil];
+    
+    for (int i = 0; i < [studentsArray count]; i++) {
+        EGBStudent* obj = [studentsArray objectAtIndex:i];
+        NSLog(@"Name = %@, Surname = %@", obj.name, obj.lastName);
+    }
+    
+    
+    NSArray *sortedArray = [studentsArray sortedArrayUsingComparator: ^(EGBStudent* obj1, EGBStudent* obj2) {
+        
+        if (obj1.lastName != obj2.lastName) {
+            if (obj1.lastName > obj2.lastName) {
+                return (NSComparisonResult)NSOrderedDescending;
+            }
+            
+            if (obj1.lastName < obj1.lastName) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+                    return (NSComparisonResult)NSOrderedSame;
+        } else {
+            if (obj1.name > obj2.name) {
+                return (NSComparisonResult)NSOrderedDescending;
+            }
+            
+            if (obj1.name < obj1.name) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+                    return (NSComparisonResult)NSOrderedSame;
+        }
+        
+
+    }];
+    
+    NSLog(@" ");
+    NSLog(@"Sorted array:");
+    for (int i = 0; i < [sortedArray count]; i++) {
+        EGBStudent* obj = [sortedArray objectAtIndex:i];
+        NSLog(@"Name = %@, Surname = %@", obj.name, obj.lastName);
+        
+    }
+    
+
+    
+    
+    /*
+     NSArray *sortedArray = [studentsArray sortedArrayUsingComparator: ^(EGBStudent* obj1, EGBStudent* obj2) {
+     
+     if (obj1.lastName > obj2.lastName) {
+     return (NSComparisonResult)NSOrderedDescending;
+     }
+     
+     if (obj1.lastName < obj1.lastName) {
+     return (NSComparisonResult)NSOrderedAscending;
+     }
+     return (NSComparisonResult)NSOrderedSame;
+     }];
+     
+     */
+    
     
     return YES;
 }
